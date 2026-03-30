@@ -273,7 +273,7 @@ $(document).ready(function(){
         let id = $(this).data('id');
 
         Swal.fire({
-            title: 'Yakin?',
+            title: 'Data tidak bisa dipulihkan!',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Hapus'
