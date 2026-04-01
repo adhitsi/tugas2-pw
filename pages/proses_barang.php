@@ -27,6 +27,7 @@ if ($action == 'tambah') {
     $stmt->execute();
     $stmt->close();
 
+    $_SESSION['success'] = "Data telah ditambah";
     header("Location: ../pages/dashboard.php");
 }
 
