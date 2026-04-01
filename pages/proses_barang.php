@@ -54,7 +54,9 @@ if ($action == 'edit') {
     $stmt->execute();
     $stmt->close();
 
+    $_SESSION['success'] = "Data telah diperbarui";
     header("Location: ../pages/dashboard.php");
+    exit;
 }
 
 if ($action == 'hapus') {
