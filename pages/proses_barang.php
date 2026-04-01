@@ -38,8 +38,8 @@ if ($action == 'edit') {
     $stok = $_POST['stok'];
     $harga = $_POST['harga'];
 
-    $cek = $conn->prepare("SELECT id FROM barang WHERE kode_barang=?");
-    $cek->bind_param("s", $kode);
+    $cek = $conn->prepare("SELECT id FROM barang WHERE kode_barang=? AND id != ?");
+    $cek->bind_param("si", $kode, $id);
     $cek->execute();
     $cek->store_result();
 
@@ -48,6 +48,7 @@ if ($action == 'edit') {
         header("Location: ../pages/dashboard.php");
         exit;
     }
+
     $stmt = $conn->prepare("UPDATE barang SET kode_barang=?, nama_barang=?, kategori_id=?, stok=?, harga=? WHERE id=?");
     $stmt->bind_param("ssiidi", $kode, $nama, $kategori, $stok, $harga, $id);
     $stmt->execute();
