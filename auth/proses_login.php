@@ -13,7 +13,6 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         $user = mysqli_fetch_assoc($result);
 
         if(password_verify($password, $user['password'])){
-            // ✅ Login berhasil
             $_SESSION['username'] = $user['username'];
             $_SESSION['user_id'] = $user['id'];
 
@@ -25,14 +24,12 @@ if(isset($_POST['username']) && isset($_POST['password'])){
             exit;
 
         } else {
-            // ❌ Password salah
             $_SESSION['error'] = "Password salah!";
             header("Location: login.php");
             exit;
         }
 
     } else {
-        // ❌ Username tidak ditemukan
         $_SESSION['error'] = "Username tidak ditemukan!";
         header("Location: login.php");
         exit;
